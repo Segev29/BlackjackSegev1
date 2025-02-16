@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -16,24 +17,30 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Card> computer;
     private Button btnStand, btnHit;
     private LinearLayout layout1;
+    private int sumPlayer, sumComputer;
+    private String p,c;
+    private TextView txtplayer, txtcomputer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        txtplayer = findViewById(R.id.txtplayer);
+        txtcomputer = findViewById(R.id.txtcomputer);
         deck = new CardDeck(this);
         player = new ArrayList<>();
         computer = new ArrayList<>();
+        btnStand = findViewById(R.id.btnStand);
+        btnHit = findViewById(R.id.btnHIT);
+        btnStand.setOnClickListener(this);
+        btnHit.setOnClickListener(this);
         layout1 = findViewById(R.id.canvasView);
 
         fill();
         gameView = new GameView(this,player,computer);
         layout1.addView(gameView);
 
-        btnStand = findViewById(R.id.btnStand);
-        btnHit = findViewById(R.id.btnHIT);
-        btnStand.setOnClickListener(this);
-        btnHit.setOnClickListener(this);
+
     }
 
     private void fill() {
@@ -41,6 +48,30 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         computer.add(deck.remover());
         player.add(deck.remover());
         computer.add(deck.remover());
+        addCards();
+    }
+    private void addCards()
+    {
+        sumPlayer = 0;
+        sumComputer = 0;
+        for (int i = 0; i < player.size(); i++) {
+            if(player.get(i).getNumber() > 10)
+            {
+                sumPlayer = sumPlayer + 10;
+            }
+            else { sumPlayer = sumPlayer +player.get(i).getNumber();}
+        }
+        for (int i = 0; i < computer.size(); i++) {
+            if(computer.get(i).getNumber() > 10)
+            {
+                sumComputer = sumComputer + 10;
+            }
+            else { sumComputer = sumComputer +computer.get(i).getNumber();}
+        }
+        p = "" +sumPlayer;
+        c = "" + sumComputer;
+        txtcomputer.setText(p);
+        txtplayer.setText(c);
     }
 
     @Override
@@ -49,11 +80,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {
             player.add(deck.remover());
             gameView.setPlayer(player);
+
         }
         if(v == btnStand)
         {
 
         }
-
+        addCards();
     }
 }
