@@ -73,7 +73,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         txtcomputer.setText(p);
         txtplayer.setText(c);
     }
-
+    private void createDialog() {
+        CustomDialog customDialog = new CustomDialog(this);
+        customDialog.show();
+    }
     @Override
     public void onClick(View v) {
         if(v == btnHit && player.size()<9)
@@ -84,7 +87,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(v == btnStand)
         {
-
+            while (sumComputer < 17)
+            {
+                computer.add(deck.remover());
+                addCards();
+                //להוסיף קצת לוגיקת משחק שתגדיר מי ניצח ומי לא ותשים את הכסף בארנק של השחקן.
+            }
+            this.createDialog();
         }
         addCards();
     }
