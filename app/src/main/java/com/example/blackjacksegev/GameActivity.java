@@ -100,6 +100,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 //להוסיף בחירת צבע רקע למרות שזה מכוער
                 //לדבר עם הקלוד ולעשות עיצוב מגניב יותר
                 //אם ישנה אפשרות להוסיף גם פראגמנט
+                //להוסיף הרשמה ושמירת נתונים ויצירת חשבון חדש
             }
             this.createDialog();
         }
