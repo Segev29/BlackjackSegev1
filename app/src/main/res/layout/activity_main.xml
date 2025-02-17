@@ -1,18 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#015A01"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="start game"
+        android:id="@+id/btnstart"
+        android:background="#DE0000"
+        ></Button>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Current bet is: 0"
+        android:id="@+id/betview"
+        android:textSize="30dp"
+        ></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="Current bet is: 0"
+        android:id="@+id/moneyview"
+        android:textSize="30dp"
+        ></TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        android:text="raise 1"
+        android:id="@+id/btn1"
+        android:background="#DE0000"
+        android:layout_weight="1"
+        ></Button>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="raise 10"
+        android:id="@+id/btn10"
+        android:background="#DE0000"
+        android:layout_weight="1"
+        ></Button>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="raise 50"
+        android:id="@+id/btn50"
+        android:background="#DE0000"
+        android:layout_weight="1"
+        ></Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="raise 200"
+            android:id="@+id/btn200"
+            android:background="#DE0000"
+            android:layout_weight="1"
+            ></Button>
+        </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

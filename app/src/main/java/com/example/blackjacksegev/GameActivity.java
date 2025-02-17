@@ -20,6 +20,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private int sumPlayer, sumComputer;
     private String p,c;
     private TextView txtplayer, txtcomputer;
+    int bet,totalmoney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         btnHit = findViewById(R.id.btnHIT);
         btnStand.setOnClickListener(this);
         btnHit.setOnClickListener(this);
+        totalmoney = 1500;
+        bet = 0;
         layout1 = findViewById(R.id.canvasView);
 
         fill();
@@ -90,8 +93,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             while (sumComputer < 17)
             {
                 computer.add(deck.remover());
+                gameView.setComputer(computer);
                 addCards();
                 //להוסיף קצת לוגיקת משחק שתגדיר מי ניצח ומי לא ותשים את הכסף בארנק של השחקן.
+                //להוסיף מוזיקה
+                //להוסיף בחירת צבע רקע למרות שזה מכוער
+                //לדבר עם הקלוד ולעשות עיצוב מגניב יותר
+                //אם ישנה אפשרות להוסיף גם פראגמנט
             }
             this.createDialog();
         }
