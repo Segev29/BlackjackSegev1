@@ -2,6 +2,7 @@ package com.example.blackjacksegev;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -88,20 +89,37 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             gameView.setPlayer(player);
 
         }
-        if(v == btnStand)
-        {
-            while (sumComputer < 17)
-            {
+        if(v == btnStand) {
+            while (sumComputer < 17) {
                 computer.add(deck.remover());
                 gameView.setComputer(computer);
-                addCards();
                 //להוסיף קצת לוגיקת משחק שתגדיר מי ניצח ומי לא ותשים את הכסף בארנק של השחקן.
                 //להוסיף מוזיקה
                 //להוסיף בחירת צבע רקע למרות שזה מכוער
                 //לדבר עם הקלוד ולעשות עיצוב מגניב יותר
                 //אם ישנה אפשרות להוסיף גם פראגמנט
                 //להוסיף הרשמה ושמירת נתונים ויצירת חשבון חדש
+                addCards();
             }
+
+            sumPlayer = 21;
+            Intent i = new Intent();
+            if (sumComputer < 22 && sumComputer > sumPlayer) {
+                i.putExtra("k", "2");
+            }
+
+            else if (sumPlayer > 21) {
+                i.putExtra("k", "2");
+            }
+            else if (sumPlayer < 22 && sumPlayer > sumComputer) {
+                i.putExtra("k", "1");
+            }
+            else
+            {
+                i.putExtra("k", "2");
+            }
+            setResult(RESULT_OK,i);
+            finish();
             this.createDialog();
         }
         addCards();
