@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignInActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <EditText
+            android:text="username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ETusername"
+            ></EditText>
+        <EditText
+            android:text="password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ETpassword"
+            ></EditText>
+        <Button
+            android:id="@+id/btnDone"
+            android:backgroundTint="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Done"
+            />
+        <Button
+            android:id="@+id/btnSignUp"
+            android:backgroundTint="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Press here to Sign up"
+            />
+    </LinearLayout>
+
+</LinearLayout>

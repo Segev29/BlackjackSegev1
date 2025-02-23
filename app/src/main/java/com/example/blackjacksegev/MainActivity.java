@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        betview = findViewById(R.id.betview);
+        setContentView(R.layout.activity_sign_in);
+        /*betview = findViewById(R.id.betview);
         btn1 = findViewById(R.id.btn1);
         btn10 = findViewById(R.id.btn10);
         btn50 = findViewById(R.id.btn50);
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnstartGame.setOnClickListener(this);
         bet = 0;
         totalmoeny = 1000;
-        moneyview.setText("You have:" + totalmoeny);
+        moneyview.setText("You have:" + totalmoeny);*/
 
     }
 
