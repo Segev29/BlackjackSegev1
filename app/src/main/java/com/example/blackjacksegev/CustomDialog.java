@@ -24,7 +24,8 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
     public void onClick(View v) {
         if(v == btnyes)
         {
-            //לעשות את הyes
+            dismiss();
+            ((GameActivity) context).reset();
         }
         if(btnno == v)
         {

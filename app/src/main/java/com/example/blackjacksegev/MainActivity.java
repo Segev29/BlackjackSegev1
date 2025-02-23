@@ -99,6 +99,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             totalmoeny = totalmoeny + bet1 * 2;
         }
+        if(result.equals("0") )
+        {
+            totalmoeny = totalmoeny + bet1;
+        }
 
         bet = 0;
         refresh();

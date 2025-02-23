@@ -29,23 +29,27 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_game);
         txtplayer = findViewById(R.id.txtplayer);
         txtcomputer = findViewById(R.id.txtcomputer);
-        deck = new CardDeck(this);
-        player = new ArrayList<>();
-        computer = new ArrayList<>();
         btnStand = findViewById(R.id.btnStand);
         btnHit = findViewById(R.id.btnHIT);
         btnStand.setOnClickListener(this);
         btnHit.setOnClickListener(this);
-        totalmoney = 1500;
-        bet = 0;
         layout1 = findViewById(R.id.canvasView);
-
-        fill();
+        reset();
         gameView = new GameView(this,player,computer);
         layout1.addView(gameView);
 
 
     }
+
+    public void reset() {
+        deck = new CardDeck(this);
+        player = new ArrayList<>();
+        computer = new ArrayList<>();
+        totalmoney = 1500;
+        bet = 0;
+        fill();
+    }
+
 
     private void fill() {
         player.add(deck.remover());
@@ -102,9 +106,12 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 addCards();
             }
 
-            sumPlayer = 21;
             Intent i = new Intent();
-            if (sumComputer < 22 && sumComputer > sumPlayer) {
+            if(sumComputer > 21 && sumPlayer < 22)
+            {
+                i.putExtra("k", "1");
+            }
+            else if (sumComputer < 22 && sumComputer > sumPlayer) {
                 i.putExtra("k", "2");
             }
 
@@ -113,8 +120,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             else if (sumPlayer < 22 && sumPlayer > sumComputer) {
                 i.putExtra("k", "1");
-            }
-            else
+            } else if (sumPlayer < 22 && sumPlayer == sumComputer) {
+                i.putExtra("k", "0");
+            } else
             {
                 i.putExtra("k", "2");
             }
