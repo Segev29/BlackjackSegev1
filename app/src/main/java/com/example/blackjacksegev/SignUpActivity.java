@@ -11,24 +11,24 @@ import android.widget.EditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button btnSave;
+public class SignUpActivity extends AppCompatActivity /*implements View.OnClickListener*/ {
+    /*private Button btnSave;
     private EditText userName, password1, password2;
     FirebaseDatabase database;
-    DatabaseReference reference;
+    DatabaseReference reference;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        btnSave = findViewById(R.id.BtnSignUp);
+        /*btnSave = findViewById(R.id.BtnSignUp);
         btnSave.setOnClickListener(this);
         userName = findViewById(R.id.ETusername1);
         password1 = findViewById(R.id.ETpassword1);
-        password2 = findViewById(R.id.ETpasswordVerify);
+        password2 = findViewById(R.id.ETpasswordVerify);*/
     }
 
-    @Override
+    /*@Override
     public void onClick(View v) {
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("Users");
@@ -44,5 +44,5 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         startActivity(intent);
 
 
-    }
+    }*/
 }

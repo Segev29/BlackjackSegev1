@@ -5,40 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SignInActivity">
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:text="Firebase Authentication" />
+
+    <EditText
+        android:id="@+id/etEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:hint="enter email"
+        android:layout_marginTop="20dp"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/etNumberPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:hint="enter number password"
+        android:layout_marginTop="20dp"
+        android:inputType="numberPassword" />
+
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:orientation="horizontal"
         >
-        <EditText
-            android:text="username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ETusername"
-            ></EditText>
-        <EditText
-            android:text="password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ETpassword"
-            ></EditText>
+
         <Button
-            android:id="@+id/btnDone"
-            android:backgroundTint="@color/white"
-            android:layout_width="match_parent"
+            android:id="@+id/btnRegister"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Done"
-            />
+            android:text="Register" />
+
         <Button
-            android:id="@+id/btnSignUp"
-            android:backgroundTint="@color/white"
-            android:layout_width="match_parent"
+            android:id="@+id/btnLogin"
+            android:layout_width="150dp"
+            android:layout_marginLeft="20dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Press here to Sign up"
-            />
+            android:text="Login" />
     </LinearLayout>
 
 </LinearLayout>
