@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "118748757562",
+    "firebase_url": "https://blackjack1-10c50-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "blackjack1-10c50",
+    "storage_bucket": "blackjack1-10c50.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118748757562:android:4d68e9077db35912f7bf03",
+        "android_client_info": {
+          "package_name": "com.example.blackjacksegev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcmZeix668eTSWpEcKQq3CaIz6YquGCAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
