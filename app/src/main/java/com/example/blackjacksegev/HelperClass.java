@@ -26,7 +26,7 @@ public class HelperClass {
 
         // read the records from the Firebase and order them by the record from highest to lowest
         // limit to only 8 items
-        Query myQuery = database.getReference("records").orderByChild("score").limitToLast(8);
+        Query myQuery = database.getReference("Money").orderByChild("score").limitToLast(8);
 
         myQuery.addValueEventListener(new ValueEventListener() {
             @Override
@@ -45,7 +45,7 @@ public class HelperClass {
                         }
                     });
                 }*/
-                ((LeaderBoard)context).dataChange();
+                /*((MainActivity)context).dataChange();*/
 
             }
 
@@ -55,7 +55,7 @@ public class HelperClass {
         });
 
         DatabaseReference myRef = database.getReference(FirebaseAuth.getInstance().getUid());
-        myRef = database.getReference("records/" + FirebaseAuth.getInstance().getUid());
+        myRef = database.getReference("Money/" + FirebaseAuth.getInstance().getUid());
         //DatabaseReference myRef = database.getReference().child(FirebaseAuth.getInstance().getUid());
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -63,7 +63,7 @@ public class HelperClass {
                 MyMoney currentRecord =snapshot.getValue(MyMoney.class);
                 if(currentRecord != null)
                 {
-                    ((LeaderBoard)context).userDataChange(currentRecord);
+                    ((MainActivity)context).userDataChange(currentRecord);
                 }
                 else
                     Log.d("TAG", "onDataChange: ");
@@ -80,25 +80,25 @@ public class HelperClass {
 
     }
 
-    public void setRecord(String name, int record)
+    public void setRecord( int record)
     {
         // Write a message to the database
-        DatabaseReference myRef = database.getReference("records").push(); // push adds new node with unique value
+        DatabaseReference myRef = database.getReference("Money").push(); // push adds new node with unique value
 
         //DatabaseReference myRef = database.getReference("records/" + FirebaseAuth.getInstance().getUid());
 
-        MyMoney rec = new MyMoney(name, record);
+        MyMoney rec = new MyMoney(record);
         myRef.setValue(rec);
     }
 
-    public void setPrivateRecord(String name, int record)
+    public void setPrivateRecord(int record)
     {
         // Write a message to the database
         //DatabaseReference myRef = database.getReference("records").push(); // push adds new node with unique value
 
-        DatabaseReference myRef = database.getReference("records/" + FirebaseAuth.getInstance().getUid());
+        DatabaseReference myRef = database.getReference("Money/" + FirebaseAuth.getInstance().getUid());
 
-        MyMoney rec = new MyMoney(name, record);
+        MyMoney rec = new MyMoney(record);
         myRef.setValue(rec);
     }
 }

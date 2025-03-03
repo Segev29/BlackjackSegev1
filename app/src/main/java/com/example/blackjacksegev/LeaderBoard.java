@@ -60,7 +60,7 @@ public class LeaderBoard extends AppCompatActivity implements View.OnClickListen
     }
 
     public void userDataChange(MyMoney currentRecord) {
-        tvWelcome.setText("" + currentRecord.getName() + " : " + currentRecord.getScore() + " points");
+        tvWelcome.setText(currentRecord.getScore() + " points");
     }
 
     @Override
@@ -69,14 +69,14 @@ public class LeaderBoard extends AppCompatActivity implements View.OnClickListen
         {
             // save the record in the firebase
             //fb.setRecord(etName.getText().toString(), Integer.parseInt(etRecord.getText().toString()));
-            fb.setRecord(etName.getText().toString(), Integer.parseInt(etRecord.getText().toString()));
+            fb.setRecord(Integer.parseInt(etRecord.getText().toString()));
         }
 
         if(view == btnAddPrivateRecordToDB)
         {
             // save the record in the firebase
             //fb.setRecord(etName.getText().toString(), Integer.parseInt(etRecord.getText().toString()));
-            fb.setPrivateRecord(etName.getText().toString(), Integer.parseInt(etRecord.getText().toString()));
+            fb.setPrivateRecord(Integer.parseInt(etRecord.getText().toString()));
         }
 
         if(view == btnLogout)

@@ -15,11 +15,10 @@
         <activity
             android:name=".LeaderBoard"
             android:exported="false" />
+
+
         <activity
             android:name=".SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignInActivity"
             android:exported="false" />
         <activity
             android:name=".CustomDialog"
@@ -29,12 +28,16 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

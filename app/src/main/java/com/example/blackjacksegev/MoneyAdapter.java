@@ -39,7 +39,7 @@ public class MoneyAdapter extends RecyclerView.Adapter<MoneyAdapter.UserViewHold
         MyMoney money = recordsList.get(position);
 
         // TODO: update according to your Class
-        holder.tvName.setText(money.getName());
+        /*holder.tvName.setText(money.getName());*/
 
         // convert int to String by:  ""+int
         holder.tvRecord.setText(""+money.getScore());

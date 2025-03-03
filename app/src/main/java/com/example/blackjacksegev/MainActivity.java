@@ -10,23 +10,32 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private int bet,totalmoeny;
-    private Button btn1, btn10, btn50, btn200,btnstartGame;
+    private Button btn1, btn10, btn50, btn200,btnstartGame, btnLogout;
     private TextView betview, moneyview;
+    private ArrayList<MyMoney> myMonies;
+    private HelperClass fb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent i = new Intent(this, SignInActivity.class);
-        startActivity(i);
-        /*betview = findViewById(R.id.betview);
+        /*Intent i = new Intent(this, SignInActivity.class);
+        startActivity(i);*/
+        betview = findViewById(R.id.betview);
         btn1 = findViewById(R.id.btn1);
         btn10 = findViewById(R.id.btn10);
         btn50 = findViewById(R.id.btn50);
         btn200 = findViewById(R.id.btn200);
         moneyview = findViewById(R.id.moneyview);
-
+        btnLogout = findViewById(R.id.btnLogout);
+        myMonies = new ArrayList<>();
+        fb = new HelperClass(this, myMonies);
+        btnLogout.setOnClickListener(this);
         btnstartGame = findViewById(R.id.btnstart);
         btn1.setOnClickListener(this);
         btn10.setOnClickListener(this);
@@ -34,13 +43,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn200.setOnClickListener(this);
         btnstartGame.setOnClickListener(this);
         bet = 0;
-        totalmoeny = 1000;
-        moneyview.setText("You have:" + totalmoeny);*/
 
+        moneyview.setText("You have:" + totalmoeny);
+
+    }
+    public void userDataChange(MyMoney currentRecord) {
+        totalmoeny = currentRecord.getScore();
+        moneyview.setText("You have:" + currentRecord.getScore());
     }
 
     @Override
     public void onClick(View v) {
+
+        if(v == btnLogout)
+        {
+            FirebaseAuth.getInstance().signOut();
+            finish();
+        }
         if(v == btnstartGame)
         {
             if(bet > 0)
@@ -83,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 totalmoeny = totalmoeny-200;
             }
         }
+        fb.setPrivateRecord(totalmoeny);
         refresh();
     }
 
@@ -91,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String string1 = "You have: " + totalmoeny;
         betview.setText(string);
         moneyview.setText(string1);
+        fb.setPrivateRecord(totalmoeny);
     }
 
     @Override

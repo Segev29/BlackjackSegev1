@@ -53,7 +53,7 @@ protected void onStart() {
         }
 
 private void reload() {
-        Intent intent = new Intent(SignInActivity.this, LeaderBoard.class);
+        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
         startActivity(intent);
         }
 
@@ -68,7 +68,7 @@ public void onClick(View view) {
 public void onComplete(@NonNull Task<AuthResult> task) {
         if (task.isSuccessful()) {
         // Sign in success, update UI with the signed-in user's information
-        Intent intent = new Intent(SignInActivity.this, LeaderBoard.class);
+        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
         startActivity(intent);
 
         } else {
@@ -89,7 +89,7 @@ public void onComplete(@NonNull Task<AuthResult> task) {
 public void onComplete(@NonNull Task<AuthResult> task) {
         if (task.isSuccessful()) {
         // Sign in success, update UI with the signed-in user's information
-        Intent intent = new Intent(SignInActivity.this, LeaderBoard.class);
+        Intent intent = new Intent(SignInActivity.this, MainActivity.class);
         startActivity(intent);
         } else {
         // If sign in fails, display a message to the user.
