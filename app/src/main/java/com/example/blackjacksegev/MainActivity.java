@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private int bet,totalmoeny;
-    private Button btn1, btn10, btn50, btn200,btnstartGame, btnLogout;
+    private Button btn1, btn10, btn50, btn200,btnstartGame, btnLogout, btnSettings;
     private TextView betview, moneyview;
     private ArrayList<MyMoney> myMonies;
     private HelperClass fb;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         /*Intent i = new Intent(this, SignInActivity.class);
         startActivity(i);*/
+        btnSettings = findViewById(R.id.btnSettings);
         betview = findViewById(R.id.betview);
         btn1 = findViewById(R.id.btn1);
         btn10 = findViewById(R.id.btn10);
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn50.setOnClickListener(this);
         btn200.setOnClickListener(this);
         btnstartGame.setOnClickListener(this);
+        btnSettings.setOnClickListener(this);
         bet = 0;
 
         moneyview.setText("You have:" + totalmoeny);
@@ -101,6 +103,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 bet = bet+200;
                 totalmoeny = totalmoeny-200;
             }
+        }
+        if(v == btnSettings)
+        {
+            Intent i1 = new Intent(this,SettingsActivity.class);
+            startActivity(i1);
         }
         fb.setPrivateRecord(totalmoeny);
         refresh();
