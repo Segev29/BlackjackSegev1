@@ -1,5 +1,10 @@
 package com.example.blackjacksegev;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -19,7 +25,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btn1, btn10, btn50, btn200,btnstartGame, btnLogout, btnSettings;
     private TextView betview, moneyview;
     private ArrayList<MyMoney> myMonies;
+    private String color;
     private HelperClass fb;
+    private ActivityResultLauncher<Intent> activityResultLauncher;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +56,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         bet = 0;
 
         moneyview.setText("You have:" + totalmoeny);
+        
+        
+        
+        
+        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult o) {
+                if (o.getResultCode() == RESULT_OK) {
+                    Intent data = o.getData();
+                    color = data.getStringExtra("color");
+                    Toast.makeText(MainActivity.this, color, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 
-    }
-    public void userDataChange(MyMoney currentRecord) {
+        public void userDataChange(MyMoney currentRecord) {
         totalmoeny = currentRecord.getScore();
-        moneyview.setText("You have:" + currentRecord.getScore());
-    }
+        moneyview.setText("You have:" + currentRecord.getScore());}
 
     @Override
     public void onClick(View v) {
@@ -107,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == btnSettings)
         {
             Intent i1 = new Intent(this,SettingsActivity.class);
-            startActivity(i1);
+            activityResultLauncher.launch(i1);
         }
         fb.setPrivateRecord(totalmoeny);
         refresh();

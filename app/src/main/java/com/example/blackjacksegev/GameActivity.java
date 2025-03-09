@@ -128,7 +128,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             setResult(RESULT_OK,i);
             finish();
-            this.createDialog();
         }
         addCards();
     }
