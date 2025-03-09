@@ -7,12 +7,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Set;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+public class SettingsActivity extends AppCompatActivity implements View.OnClickListener,  AdapterView.OnItemSelectedListener {
     private boolean isMusicPlaying = false;
     private Button musicButton, btnDone;
     private Spinner spinner;
@@ -26,13 +27,14 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         musicButton = findViewById(R.id.musicButton);
         btnDone = findViewById(R.id.btnDone);
         spinner = findViewById(R.id.spinnerColors);
+        spinner.setOnItemSelectedListener(this);
         stringArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
                 arr);
         stringArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(stringArrayAdapter);
         btnDone.setOnClickListener(this);
         musicButton.setOnClickListener(this);
-        spinner.setOnItemClickListener(this);
+
 
     }
 
@@ -60,8 +62,9 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if(isfirsttime==false){
             Intent intent = new Intent();
             intent.putExtra("color",arr[position]);
@@ -71,4 +74,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         isfirsttime= false;
     }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        Toast.makeText(this, "yuvi", Toast.LENGTH_SHORT).show();
+    }
 }

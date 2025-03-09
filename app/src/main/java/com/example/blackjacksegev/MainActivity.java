@@ -10,9 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.LauncherActivity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.CornerPathEffect;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<MyMoney> myMonies;
     private String color;
     private HelperClass fb;
+    private LinearLayout layout;
     private ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
@@ -66,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (o.getResultCode() == RESULT_OK) {
                     Intent data = o.getData();
                     color = data.getStringExtra("color");
+                    colors1();
                     Toast.makeText(MainActivity.this, color, Toast.LENGTH_SHORT).show();
                 }
             }
@@ -75,6 +80,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public void userDataChange(MyMoney currentRecord) {
         totalmoeny = currentRecord.getScore();
         moneyview.setText("You have:" + currentRecord.getScore());}
+    public void colors1()
+    {
+
+        switch (color)
+        {
+            case "blue":
+            {
+                btn1.setBackgroundColor(Color.BLUE);
+                btn10.setBackgroundColor(Color.BLUE);
+                btn50.setBackgroundColor(Color.BLUE);
+                btn200.setBackgroundColor(Color.BLUE);
+                break;
+
+            }
+            case "red":
+            {
+                btn1.setBackgroundColor(Color.RED);
+                btn10.setBackgroundColor(Color.RED);
+                btn50.setBackgroundColor(Color.RED);
+                btn200.setBackgroundColor(Color.RED);
+                break;
+            }
+            case "green":
+            {
+                btn1.setBackgroundColor(Color.GREEN);
+                btn10.setBackgroundColor(Color.GREEN);
+                btn50.setBackgroundColor(Color.GREEN);
+                btn200.setBackgroundColor(Color.GREEN);
+                break;
+            }
+            default:
+                Toast.makeText(MainActivity.this, "No valid color selected", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 
     @Override
     public void onClick(View v) {
