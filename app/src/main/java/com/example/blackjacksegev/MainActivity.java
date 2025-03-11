@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             if(bet > 0)
             {
-                int win = 0;
+                int win = 17;
                 Intent intent = new Intent(this, GameActivity.class);
                 intent.putExtra("bet",bet);
                 startActivityForResult(intent,win);
@@ -187,17 +187,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         int bet1 = bet;
-        String result = data.getStringExtra("k");
-        if(result.equals("1") )
+        if(requestCode == 17)
         {
-            totalmoeny = totalmoeny + bet1 * 2;
-        }
-        if(result.equals("0") )
-        {
-            totalmoeny = totalmoeny + bet1;
+            String result = data.getStringExtra("k");
+            if(result.equals("1") )
+            {
+                totalmoeny = totalmoeny + bet1 * 2;
+            }
+            if(result.equals("0") )
+            {
+                totalmoeny = totalmoeny + bet1;
+            }
+
+            bet = 0;
+            refresh();
         }
 
-        bet = 0;
-        refresh();
     }
 }
