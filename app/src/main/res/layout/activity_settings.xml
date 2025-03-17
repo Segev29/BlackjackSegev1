@@ -3,21 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@drawable/background"
     android:orientation="vertical">
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinnerColors"
         ></Spinner>
-    <Button
+    <ImageButton
+
         android:id="@+id/musicButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/jeton"
         android:text="Play Music" />
-    <Button
+    <ImageButton
         android:id="@+id/btnDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Done" />
+        android:background="@drawable/goback" />
 
 </LinearLayout>

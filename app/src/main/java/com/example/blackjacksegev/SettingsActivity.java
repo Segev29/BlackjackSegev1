@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -15,7 +16,7 @@ import java.util.Set;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener,  AdapterView.OnItemSelectedListener {
     private boolean isMusicPlaying = false;
-    private Button musicButton, btnDone;
+    private ImageButton musicButton, btnDone;
     private Spinner spinner;
     private String[] arr = {"","red","green","blue"};
     private ArrayAdapter<String> stringArrayAdapter;
@@ -47,12 +48,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 // Start the music service
                 startService(new Intent(SettingsActivity.this, MusicService.class));
                 isMusicPlaying = true;
-                musicButton.setText("Stop Music");
             } else {
                 // Stop the music service
                 stopService(new Intent(SettingsActivity.this, MusicService.class));
                 isMusicPlaying = false;
-                musicButton.setText("Play Music");
             }
         }
         if(v == btnDone)
