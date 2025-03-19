@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#5D4037"
+    android:background="#015A01"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,46 +15,52 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="SALOON POKER &amp; BLACKJACK"
+        android:text="POKER GAME"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="#FFD700"
-        android:fontFamily="serif"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="20dp"
         android:gravity="center" />
-
-    <EditText
-        android:id="@+id/etEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter email, partner"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="40dp"
-        android:textSize="24dp"
-        android:padding="15dp"
-        android:textColorHint="#CCCCCC"
-        android:textColor="#FFFFFF"
-        android:background="#8B4513"
-        android:fontFamily="serif" />
-
-    <EditText
-        android:id="@+id/etNumberPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your secret code"
-        android:inputType="numberPassword"
-        android:layout_marginTop="30dp"
-        android:textSize="24dp"
-        android:padding="15dp"
-        android:textColorHint="#CCCCCC"
-        android:textColor="#FFFFFF"
-        android:background="#8B4513"
-        android:fontFamily="serif" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginTop="40dp"
+        android:background="#004400">
+
+        <EditText
+            android:id="@+id/etEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter email"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="10dp"
+            android:textSize="24dp"
+            android:padding="15dp"
+            android:textColorHint="#CCCCCC"
+            android:textColor="#FFFFFF"
+            android:background="#333333" />
+
+        <EditText
+            android:id="@+id/etNumberPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your password"
+            android:inputType="numberPassword"
+            android:layout_marginTop="20dp"
+            android:textSize="24dp"
+            android:padding="15dp"
+            android:textColorHint="#CCCCCC"
+            android:textColor="#FFFFFF"
+            android:background="#333333" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -64,9 +71,8 @@
             android:text="REGISTER"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:textColor="#FFD700"
-            android:backgroundTint="#8B4513"
-            android:fontFamily="serif" />
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#333333" />
 
         <Button
             android:id="@+id/btnLogin"
@@ -76,8 +82,7 @@
             android:text="LOGIN"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:textColor="#FFD700"
-            android:backgroundTint="#8B4513"
-            android:fontFamily="serif" />
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#DE0000" />
     </LinearLayout>
 </LinearLayout>

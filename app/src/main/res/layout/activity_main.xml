@@ -1,88 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#015A01"
     tools:context=".MainActivity">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnLogout">
-    </Button>
 
+    <!-- Header with logout button -->
     <Button
-        android:layout_margin="30dp"
-        android:layout_width="match_parent"
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="start game"
+        android:text="LOGOUT"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#333333"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Game title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POKER GAME"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Start game button -->
+    <Button
         android:id="@+id/btnstart"
-        android:background="#DE0000"
-        ></Button>
-    <TextView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="Current bet is: 0"
-        android:id="@+id/betview"
-        android:textSize="30dp"
-        ></TextView>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="Current bet is: 0"
-        android:id="@+id/moneyview"
-        android:textSize="30dp"
-        ></TextView>
+        android:text="START GAME"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:backgroundTint="#DE0000"
+        android:layout_margin="30dp"
+        app:layout_constraintTop_toBottomOf="@id/btnLogout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Plain info layout -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:id="@+id/layoutmiddle"
-        android:layout_height="300dp">
-    <Button
-        android:layout_width="match_parent"
-        android:layout_margin="5dp"
-        android:layout_height="wrap_content"
-        android:text="raise 1"
-        android:id="@+id/btn1"
-        android:background="#DE0000"
-        android:layout_weight="1"
-        ></Button>
-    <Button
+        android:id="@+id/infoLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="raise 10"
-        android:id="@+id/btn10"
-        android:background="#DE0000"
-        android:layout_weight="1"
-        ></Button>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="raise 50"
-        android:id="@+id/btn50"
-        android:background="#DE0000"
-        android:layout_weight="1"
-        ></Button>
-        <Button
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_margin="16dp"
+        android:background="#004400"
+        app:layout_constraintTop_toBottomOf="@id/btnstart">
+
+        <!-- Bet view -->
+        <TextView
+            android:id="@+id/betview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:text="raise 200"
-            android:id="@+id/btn200"
-            android:background="#DE0000"
-            android:layout_weight="1"
-            ></Button>
-        </LinearLayout>
-    <Button
+            android:text="Current bet is: 0"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Money view -->
+        <TextView
+            android:id="@+id/moneyview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current bet is: 0"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Betting buttons layout -->
+    <LinearLayout
+        android:id="@+id/layoutmiddle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSettings"
-        android:text="settings"
-        ></Button>
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btnSettings">
 
-</LinearLayout>
+        <!-- Raise 1 button -->
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="RAISE\n1"
+            android:textStyle="bold"
+            android:background="#DE0000"
+            android:layout_margin="5dp" />
+
+        <!-- Raise 10 button -->
+        <Button
+            android:id="@+id/btn10"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="RAISE\n10"
+            android:textStyle="bold"
+            android:background="#DE0000"
+            android:layout_margin="5dp" />
+
+        <!-- Raise 50 button -->
+        <Button
+            android:id="@+id/btn50"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="RAISE\n50"
+            android:textStyle="bold"
+            android:background="#DE0000"
+            android:layout_margin="5dp" />
+
+        <!-- Raise 200 button -->
+        <Button
+            android:id="@+id/btn200"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="RAISE\n200"
+            android:textStyle="bold"
+            android:background="#DE0000"
+            android:layout_margin="5dp" />
+    </LinearLayout>
+
+    <!-- Settings button -->
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SETTINGS"
+        android:textStyle="bold"
+        android:backgroundTint="#333333"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

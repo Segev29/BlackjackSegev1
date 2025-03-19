@@ -76,8 +76,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             }
             else { sumComputer = sumComputer +computer.get(i).getNumber();}
         }
-        p = "" +sumPlayer;
-        c = "" + sumComputer;
+        p = "you: " +sumPlayer;
+        c = "computer: " + sumComputer;
         txtcomputer.setText(p);
         txtplayer.setText(c);
     }
