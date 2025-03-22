@@ -54,16 +54,16 @@ public class HelperClass {
             }
         });
 
-        DatabaseReference myRef = database.getReference(FirebaseAuth.getInstance().getUid());
-        myRef = database.getReference("Money/" + FirebaseAuth.getInstance().getUid());
+        DatabaseReference myRef = database.getReference(FirebaseAuth.getInstance().getUid());   // קבלת מזהה המשתמש מתוך Firebase Authentication
+        myRef = database.getReference("Money/" + FirebaseAuth.getInstance().getUid());    // יצירת קישור למידע הפרטי של המשתמש תחת "Money/[UserID]"
         //DatabaseReference myRef = database.getReference().child(FirebaseAuth.getInstance().getUid());
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {   // מאזין לשינויים בנתונים של המשתמש הספציפי המחובר
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                MyMoney currentRecord =snapshot.getValue(MyMoney.class);
+                MyMoney currentRecord =snapshot.getValue(MyMoney.class);  // קבלת הרשומה של המשתמש
                 if(currentRecord != null)
                 {
-                    ((MainActivity)context).userDataChange(currentRecord);
+                    ((MainActivity)context).userDataChange(currentRecord); // אם הרשומה קיימת, מעדכן את הנתונים ב-MainActivity
                 }
                 else
                     Log.d("TAG", "onDataChange: ");
@@ -88,7 +88,7 @@ public class HelperClass {
         //DatabaseReference myRef = database.getReference("records/" + FirebaseAuth.getInstance().getUid());
 
         MyMoney rec = new MyMoney(record);
-        myRef.setValue(rec);
+        myRef.setValue(rec);    // שמירת האובייקט במסד הנתונים
     }
 
     public void setPrivateRecord(int record)
@@ -96,9 +96,9 @@ public class HelperClass {
         // Write a message to the database
         //DatabaseReference myRef = database.getReference("records").push(); // push adds new node with unique value
 
-        DatabaseReference myRef = database.getReference("Money/" + FirebaseAuth.getInstance().getUid());
+        DatabaseReference myRef = database.getReference("Money/" + FirebaseAuth.getInstance().getUid()); // יצירת נתיב ייחודי למשתמש המחובר
 
         MyMoney rec = new MyMoney(record);
-        myRef.setValue(rec);
+        myRef.setValue(rec);// שמירת האובייקט במסד הנתונים
     }
 }
