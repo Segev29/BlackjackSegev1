@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private int bet,totalmoeny;
-    private Button btn1, btn10, btn50, btn200,btnstartGame, btnLogout, btnSettings;
+    private Button btn1, btn10, btn50, btn200,btnstartGame, btnLogout, btnSettings, btnAddMoney;
     private TextView betview, moneyview;
     private ArrayList<MyMoney> myMonies;
     private String color;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn200 = findViewById(R.id.btn200);
         moneyview = findViewById(R.id.moneyview);
         btnLogout = findViewById(R.id.btnLogout);
+        btnAddMoney = findViewById(R.id.btnaddmoney);
         myMonies = new ArrayList<>();
         fb = new HelperClass(this, myMonies);
         btnLogout.setOnClickListener(this);
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn200.setOnClickListener(this);
         btnstartGame.setOnClickListener(this);
         btnSettings.setOnClickListener(this);
+        btnAddMoney.setOnClickListener(this);
         bet = 0;
 
         moneyview.setText("You have:" + totalmoeny);
@@ -118,6 +120,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        if(v == btnAddMoney)
+        {
+            totalmoeny = totalmoeny+150;
+        }
 
         if(v == btnLogout)
         {

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -91,7 +92,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {
             player.add(deck.remover());
             gameView.setPlayer(player);
-
+            addCards();
         }
         if(v == btnStand) {
             while (sumComputer < 17) {
@@ -110,25 +111,43 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             if(sumComputer > 21 && sumPlayer < 22)
             {
                 i.putExtra("k", "1");
+                txtcomputer.setText("you win!");
+                txtplayer.setText("you win!");
             }
             else if (sumComputer < 22 && sumComputer > sumPlayer) {
                 i.putExtra("k", "2");
+                txtcomputer.setText("you lost");
+                txtplayer.setText("you lost");
             }
 
             else if (sumPlayer > 21) {
                 i.putExtra("k", "2");
+                txtcomputer.setText("you lost");
+                txtplayer.setText("you lost");
             }
             else if (sumPlayer < 22 && sumPlayer > sumComputer) {
                 i.putExtra("k", "1");
+                txtcomputer.setText("you win!");
+                txtplayer.setText("you win!");
             } else if (sumPlayer < 22 && sumPlayer == sumComputer) {
                 i.putExtra("k", "0");
+                txtcomputer.setText("draw");
+                txtplayer.setText("draw");
             } else
             {
                 i.putExtra("k", "2");
+                txtcomputer.setText("you lost");
+                txtplayer.setText("you lost");
             }
             setResult(RESULT_OK,i);
-            finish();
+            //finish();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            },1500);
         }
-        addCards();
+        //addCards();
     }
 }

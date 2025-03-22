@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+
     <!-- Game title -->
     <TextView
         android:layout_width="wrap_content"
@@ -88,7 +89,15 @@
         android:orientation="horizontal"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toTopOf="@id/btnSettings">
-
+        <Button
+            android:id="@+id/btnaddmoney"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Add Money"
+            android:textStyle="bold"
+            android:background="#DE0000"
+            android:layout_margin="5dp" />
         <!-- Raise 1 button -->
         <Button
             android:id="@+id/btn1"
@@ -99,6 +108,7 @@
             android:textStyle="bold"
             android:background="#DE0000"
             android:layout_margin="5dp" />
+
 
         <!-- Raise 10 button -->
         <Button
@@ -144,5 +154,6 @@
         android:backgroundTint="#333333"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
