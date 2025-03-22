@@ -26,7 +26,7 @@ public class HelperClass {
 
         // read the records from the Firebase and order them by the record from highest to lowest
         // limit to only 8 items
-        Query myQuery = database.getReference("Money").orderByChild("score").limitToLast(8);
+        Query myQuery = database.getReference("Money").orderByChild("score");
 
         myQuery.addValueEventListener(new ValueEventListener() {
             @Override
