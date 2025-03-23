@@ -22,7 +22,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private int sumPlayer, sumComputer;
     private String p,c;
     private TextView txtplayer, txtcomputer;
-    int bet,totalmoney;
+    //int bet,totalmoney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         deck = new CardDeck(this);
         player = new ArrayList<>();
         computer = new ArrayList<>();
-        totalmoney = 1500;
-        bet = 0;
+        //totalmoney = 1500;
+        //bet = 0;
         fill();
     }
 
