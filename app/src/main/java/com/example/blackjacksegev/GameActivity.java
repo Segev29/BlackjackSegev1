@@ -17,11 +17,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private CardDeck deck;
     private ArrayList<Card> player;
     private ArrayList<Card> computer;
-    private Button btnStand, btnHit;
+    private ArrayList<Card> playerSplitted;
+    private Button btnStand, btnHit, btnSplit;
     private LinearLayout layout1;
-    private int sumPlayer, sumComputer;
+    private int sumPlayer, sumComputer, sumPlayerSplit, firstpartofthegame;
     private String p,c;
     private TextView txtplayer, txtcomputer;
+    private boolean split, endfirstsplit;
     //int bet,totalmoney;
 
     @Override
@@ -32,13 +34,16 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         txtcomputer = findViewById(R.id.txtcomputer);
         btnStand = findViewById(R.id.btnStand);
         btnHit = findViewById(R.id.btnHIT);
+        btnSplit = findViewById(R.id.btnsplit);
         btnStand.setOnClickListener(this);
         btnHit.setOnClickListener(this);
         layout1 = findViewById(R.id.canvasView);
+        btnSplit.setOnClickListener(this);
         reset();
         gameView = new GameView(this,player,computer);
         layout1.addView(gameView);
-
+        split = false;
+        endfirstsplit = false;
 
     }
 
@@ -46,6 +51,13 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         deck = new CardDeck(this);
         player = new ArrayList<>();
         computer = new ArrayList<>();
+        playerSplitted = new ArrayList<>();
+        //תוסיף challenges וגם את הhint
+        //תוסיף challenges וגם את הhint
+        //תוסיף challenges וגם את הhint
+        //תוסיף challenges וגם את הhint
+        //תוסיף challenges וגם את הhint
+        //תוסיף challenges וגם את הhint
         //totalmoney = 1500;
         //bet = 0;
         fill();
@@ -57,9 +69,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         computer.add(deck.remover());
         player.add(deck.remover());
         computer.add(deck.remover());
-        addCards();
+        addCardsBeforeSplit();
     }
-    private void addCards()
+    private void addCardsBeforeSplit()
     {
         sumPlayer = 0;
         sumComputer = 0;
@@ -82,65 +94,157 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         txtcomputer.setText(p);
         txtplayer.setText(c);
     }
+    private void addCardsAfterSplit()
+    {
+        sumPlayerSplit = 0;
+        sumComputer = 0;
+        for (int i = 0; i < playerSplitted.size(); i++) {
+            if(playerSplitted.get(i).getNumber() > 10)
+            {
+                sumPlayerSplit = sumPlayerSplit + 10;
+            }
+            else { sumPlayerSplit = sumPlayerSplit +playerSplitted.get(i).getNumber();}
+        }
+        for (int i = 0; i < computer.size(); i++) {
+            if(computer.get(i).getNumber() > 10)
+            {
+                sumComputer = sumComputer + 10;
+            }
+            else { sumComputer = sumComputer +computer.get(i).getNumber();}
+        }
+        p = "you: " +sumPlayerSplit;
+        c = "computer: " + sumComputer;
+        txtcomputer.setText(p);
+        txtplayer.setText(c);
+    }
     private void createDialog() {
         CustomDialog customDialog = new CustomDialog(this);
         customDialog.show();
     }
     @Override
     public void onClick(View v) {
-        if(v == btnHit && player.size()<9)
+        if(v == btnHit /*&& player.size()<9*/)
         {
-            player.add(deck.remover());
+            if(split)
+            {
+                if(endfirstsplit)
+                {
+                    gameView.setPlayer(playerSplitted);
+                    playerSplitted.add(deck.remover());
+                    addCardsAfterSplit();
+                }
+                else
+                {
+                    player.add(deck.remover());
+                    gameView.setPlayer(player);
+                    addCardsBeforeSplit();
+                }
+            }
+            else
+            {
+                player.add(deck.remover());
+                gameView.setPlayer(player);
+                addCardsBeforeSplit();
+            }
+        }
+        if(v == btnSplit && player.size() == 2 && player.get(1).getNumber() == player.get(0).getNumber())
+        {
+            playerSplitted.add(player.get(1));
+            player.remove(1);
+            split = true;
             gameView.setPlayer(player);
-            addCards();
+            addCardsBeforeSplit();
         }
         if(v == btnStand) {
-            while (sumComputer < 17) {
-                computer.add(deck.remover());
-                gameView.setComputer(computer);
-                //להוסיף קצת לוגיקת משחק שתגדיר מי ניצח ומי לא ותשים את הכסף בארנק של השחקן.
-                //להוסיף מוזיקה
-                //להוסיף בחירת צבע רקע למרות שזה מכוער
-                //לדבר עם הקלוד ולעשות עיצוב מגניב יותר
-                //אם ישנה אפשרות להוסיף גם פראגמנט
-                //להוסיף הרשמה ושמירת נתונים ויצירת חשבון חדש
-                addCards();
-            }
-
             Intent i = new Intent();
-            if(sumComputer > 21 && sumPlayer < 22)
+            /*if(sumPlayer > 21)
             {
-                i.putExtra("k", "1");
-                txtcomputer.setText("you win!");
-                txtplayer.setText("you win!");
-            }
-            else if (sumComputer < 22 && sumComputer > sumPlayer) {
                 i.putExtra("k", "2");
                 txtcomputer.setText("you lost");
                 txtplayer.setText("you lost");
-            }
 
-            else if (sumPlayer > 21) {
-                i.putExtra("k", "2");
-                txtcomputer.setText("you lost");
-                txtplayer.setText("you lost");
-            }
-            else if (sumPlayer < 22 && sumPlayer > sumComputer) {
-                i.putExtra("k", "1");
-                txtcomputer.setText("you win!");
-                txtplayer.setText("you win!");
-            } else if (sumPlayer < 22 && sumPlayer == sumComputer) {
-                i.putExtra("k", "0");
-                txtcomputer.setText("draw");
-                txtplayer.setText("draw");
-            } else
+            }*/
+
+
+
+            if(split == false)
             {
-                i.putExtra("k", "2");
-                txtcomputer.setText("you lost");
-                txtplayer.setText("you lost");
+                while (sumComputer < 17) {
+                    computer.add(deck.remover());
+                    gameView.setComputer(computer);
+                    //להוסיף בחירת צבע רקע למרות שזה מכוער
+                    //לדבר עם הקלוד ולעשות עיצוב מגניב יותר
+                    //אם ישנה אפשרות להוסיף גם פראגמנט
+                    addCardsBeforeSplit();
+                }
+                switch (winner(sumComputer,sumPlayer))
+                {
+                    case (1):
+                    {
+                        i.putExtra("k", "1");
+                        txtcomputer.setText("you win!");
+                        txtplayer.setText("you win!");
+                        break;
+                    }
+                    case (2):
+                    {
+                        i.putExtra("k", "2");
+                        txtcomputer.setText("you lost");
+                        txtplayer.setText("you lost");
+                    }
+                    default:
+                    {
+                        i.putExtra("k", "0");
+                        txtcomputer.setText("draw");
+                        txtplayer.setText("draw");
+                    }
+                }
+                setResult(RESULT_OK,i);
             }
-            setResult(RESULT_OK,i);
-            //finish();
+            else
+            {
+
+                if(endfirstsplit == false)
+                {
+                    addCardsAfterSplit();
+                    gameView.setPlayer(playerSplitted);
+                    endfirstsplit = true;
+                }
+                else
+                {
+                    while (sumComputer < 17) {
+                        computer.add(deck.remover());
+                        gameView.setComputer(computer);
+                        //להוסיף בחירת צבע רקע למרות שזה מכוער
+                        //לדבר עם הקלוד ולעשות עיצוב מגניב יותר
+                        //אם ישנה אפשרות להוסיף גם פראגמנט
+                        addCardsBeforeSplit();
+                    }
+                    int part1 = winner(sumComputer,sumPlayer);
+                    int part2 = winner(sumComputer,sumPlayerSplit);
+                    if((part1 == 1 && part2 == 1) || (part1 == 1 && part2 == 0) || (part1 == 0 && part2 == 1))
+                    {
+                        i.putExtra("k", "1");
+                        txtcomputer.setText("you win!");
+                        txtplayer.setText("you win!");
+                    }
+                    if ((part2 == 0 && part1 == 0) || (part1 == 1 && part2 == 2) || (part1 == 2 && part2 == 1))
+                    {
+                        i.putExtra("k", "0");
+                        txtcomputer.setText("Draw");
+                        txtplayer.setText("Draw");
+                    }
+                    else
+                    {
+                        i.putExtra("k", "2");
+                        txtcomputer.setText("you lost");
+                        txtplayer.setText("you lost");
+                    }
+                }
+                setResult(RESULT_OK,i);
+                //write the logic of win and lose in split! draw and win = win. win and win = win. draw and draw = draw. draw and lose = lose. lost and win = draw. lose and lose = lost
+
+            }
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -149,5 +253,24 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
             },1500);
         }
         //addCards();
+    }
+    public int winner(int c, int p){
+        if((c > 21 && p < 22) || (p < 22 && p > c))
+        {
+            return 1;
+        }
+        else if (c < 22 && c > p) {
+            return 2;
+        }
+        else if (p < 22 && p == c) {
+            return 0;
+        }
+        else if (p > 21) {
+            return 2;
+        }
+        else
+        {
+            return 2;
+        }
     }
 }

@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="STAND"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textStyle="bold"
             android:background="#DB0000"
             android:layout_margin="15dp" />
@@ -46,7 +46,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="HIT"
-            android:textSize="30dp"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:background="#DB0000"
+            android:layout_margin="15dp" />
+        <Button
+            android:id="@+id/btnsplit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="split"
+            android:textSize="25dp"
             android:textStyle="bold"
             android:background="#DB0000"
             android:layout_margin="15dp" />
@@ -64,26 +74,26 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
-            android:id="@+id/txtcomputer"
+            android:id="@+id/txtplayer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="you: 0"
-            android:textSize="40dp"
+            android:textSize="25dp"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:gravity="center" />
 
         <TextView
-            android:id="@+id/txtplayer"
+            android:id="@+id/txtcomputer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="computer: 0"
-            android:textSize="35dp"
             android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:gravity="center" />
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
