@@ -127,7 +127,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {
             if(split)
             {
-                if(endfirstsplit)
+                if(endfirstsplit == true)
                 {
                     gameView.setPlayer(playerSplitted);
                     playerSplitted.add(deck.remover());
@@ -157,16 +157,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(v == btnStand) {
             Intent i = new Intent();
-            /*if(sumPlayer > 21)
-            {
-                i.putExtra("k", "2");
-                txtcomputer.setText("you lost");
-                txtplayer.setText("you lost");
-
-            }*/
-
-
-
             if(split == false)
             {
                 while (sumComputer < 17) {
@@ -186,20 +176,27 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         txtplayer.setText("you win!");
                         break;
                     }
-                    case (2):
-                    {
-                        i.putExtra("k", "2");
-                        txtcomputer.setText("you lost");
-                        txtplayer.setText("you lost");
-                    }
-                    default:
+                    case (0):
                     {
                         i.putExtra("k", "0");
                         txtcomputer.setText("draw");
                         txtplayer.setText("draw");
                     }
+                    default:
+                    {
+
+                        i.putExtra("k", "2");
+                        txtcomputer.setText("you lost");
+                        txtplayer.setText("you lost");
+                    }
                 }
                 setResult(RESULT_OK,i);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                },2500);
             }
             else
             {
@@ -240,17 +237,18 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         txtcomputer.setText("you lost");
                         txtplayer.setText("you lost");
                     }
+                    setResult(RESULT_OK,i);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            finish();
+                        }
+                    },2500);
                 }
-                setResult(RESULT_OK,i);
+
                 //write the logic of win and lose in split! draw and win = win. win and win = win. draw and draw = draw. draw and lose = lose. lost and win = draw. lose and lose = lost
 
             }
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    finish();
-                }
-            },1500);
         }
         //addCards();
     }
@@ -259,11 +257,15 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {
             return 1;
         }
-        else if (c < 22 && c > p) {
-            return 2;
-        }
         else if (p < 22 && p == c) {
             return 0;
+        }
+        else if(p > 22 && c > 22)
+        {
+            return 2;
+        }
+        else if (c < 22 && c > p) {
+            return 2;
         }
         else if (p > 21) {
             return 2;
