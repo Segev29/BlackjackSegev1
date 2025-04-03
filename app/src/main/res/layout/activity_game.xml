@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#015A01"
+    android:background="#0D1B2A"
     tools:context=".GameActivity">
 
     <!-- Text for Computer's Hand -->
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="Computer's Hand"
         android:textSize="25dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#00B4D8"
         android:textStyle="bold"
         android:gravity="center"
         android:layout_marginTop="5dp"
@@ -28,7 +28,7 @@
         android:id="@+id/canvasView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#015A01"
+        android:background="#0D1B2A"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/txtComputerHand"
         app:layout_constraintBottom_toTopOf="@+id/txtPlayerHand"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:text="Player's Hand"
         android:textSize="25dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#00B4D8"
         android:textStyle="bold"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/actionButtonsLayout" />
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#015A01"
+        android:background="#0D1B2A"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toTopOf="@+id/scoreLayout">
 
@@ -64,7 +64,8 @@
             android:text="STAND"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:background="#DB0000"
+            android:textColor="#E0E1DD"
+            android:background="#3A0CA3"
             android:layout_margin="15dp" />
 
         <Button
@@ -75,17 +76,19 @@
             android:text="HIT"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:background="#DB0000"
+            android:textColor="#E0E1DD"
+            android:background="#7209B7"
             android:layout_margin="15dp" />
         <Button
             android:id="@+id/btnsplit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="split"
+            android:text="SPLIT"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:background="#DB0000"
+            android:textColor="#E0E1DD"
+            android:background="#4361EE"
             android:layout_margin="15dp" />
     </LinearLayout>
 
@@ -95,7 +98,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#004400"
+        android:background="#1B263B"
         android:padding="16dp"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent">
@@ -107,7 +110,7 @@
             android:layout_weight="1"
             android:text="you: 0"
             android:textSize="25dp"
-            android:textColor="#FFFFFF"
+            android:textColor="#48CAE4"
             android:textStyle="bold"
             android:gravity="center" />
 
@@ -118,7 +121,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="computer: 0"
-            android:textColor="#FFFFFF"
+            android:textColor="#48CAE4"
             android:textSize="25dp"
             android:textStyle="bold" />
     </LinearLayout>

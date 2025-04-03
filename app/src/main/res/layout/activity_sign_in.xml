@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#015A01"
+    android:background="#0D1B2A"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,10 +15,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="POKER GAME"
+        android:text="BLACKJACK"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
+        android:textColor="#00B4D8"
         android:layout_marginTop="20dp"
         android:gravity="center" />
 
@@ -28,7 +28,7 @@
         android:orientation="vertical"
         android:padding="16dp"
         android:layout_marginTop="40dp"
-        android:background="#004400">
+        android:background="#1B263B">
 
         <EditText
             android:id="@+id/etEmailAddress"
@@ -39,9 +39,9 @@
             android:layout_marginTop="10dp"
             android:textSize="24dp"
             android:padding="15dp"
-            android:textColorHint="#CCCCCC"
-            android:textColor="#FFFFFF"
-            android:background="#333333" />
+            android:textColorHint="#90E0EF"
+            android:textColor="#E0E1DD"
+            android:background="#415A77" />
 
         <EditText
             android:id="@+id/etNumberPassword"
@@ -52,9 +52,9 @@
             android:layout_marginTop="20dp"
             android:textSize="24dp"
             android:padding="15dp"
-            android:textColorHint="#CCCCCC"
-            android:textColor="#FFFFFF"
-            android:background="#333333" />
+            android:textColorHint="#90E0EF"
+            android:textColor="#E0E1DD"
+            android:background="#415A77" />
     </LinearLayout>
 
     <LinearLayout
@@ -71,8 +71,8 @@
             android:text="REGISTER"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#333333" />
+            android:textColor="#E0E1DD"
+            android:backgroundTint="#4361EE" />
 
         <Button
             android:id="@+id/btnLogin"
@@ -82,7 +82,7 @@
             android:text="LOGIN"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#DE0000" />
+            android:textColor="#E0E1DD"
+            android:backgroundTint="#7209B7" />
     </LinearLayout>
 </LinearLayout>
