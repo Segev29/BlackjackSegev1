@@ -20,7 +20,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Card> playerSplitted;
     private Button btnStand, btnHit, btnSplit;
     private LinearLayout layout1;
-    private int sumPlayer, sumComputer, sumPlayerSplit, firstpartofthegame;
+    private int sumPlayer=0, sumComputer=0, sumPlayerSplit=0, firstpartofthegame;
     private String p,c;
     private TextView txtplayer, txtcomputer;
     private boolean split, endfirstsplit;
@@ -167,6 +167,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     //אם ישנה אפשרות להוסיף גם פראגמנט
                     addCardsBeforeSplit();
                 }
+                addCardsBeforeSplit();
                 switch (winner(sumComputer,sumPlayer))
                 {
                     case (1):
@@ -224,9 +225,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         i.putExtra("k", "1");
                         txtcomputer.setText("you win!");
                         txtplayer.setText("you win!");
-                    }
-                    if ((part2 == 0 && part1 == 0) || (part1 == 1 && part2 == 2) || (part1 == 2 && part2 == 1))
-                    {
+                    } else if ((part2 == 0 && part1 == 0) || (part1 == 1 && part2 == 2) || (part1 == 2 && part2 == 1)) {
                         i.putExtra("k", "0");
                         txtcomputer.setText("Draw");
                         txtplayer.setText("Draw");
@@ -264,7 +263,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {
             return 2;
         }
-        else if (c < 22 && c > p) {
+        else if (c < 22 && c > p)
+        {
             return 2;
         }
         else if (p > 21) {
@@ -274,5 +274,60 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         {
             return 2;
         }
+    }
+
+    public int HintSystem()
+    {
+        int busters = 0;
+        double stats;
+        for(int i = 0; i < deck.getArrCard().size(); i++)
+        {
+            if(sumPlayer < 12)
+            {
+                return 1;
+            }
+            if(split == false)
+            {
+                if(deck.getArrCard().get(i).getNumber() + sumPlayer > 21)
+                {
+                    busters++;
+                }
+            }
+            else
+            {
+                if(endfirstsplit)
+                {
+                    if(deck.getArrCard().get(i).getNumber() + sumPlayerSplit > 21)
+                    {
+                        busters++;
+                    }
+                }
+                else
+                {
+                    if(deck.getArrCard().get(i).getNumber() + sumPlayer > 21)
+                    {
+                        busters++;
+                    }
+                }
+            }
+            stats = busters/deck.getArrCard().size()*100;
+            if(stats < 35)
+            {
+                return 1;
+            }
+            if(stats > 50)
+            {
+                return 2;
+            }
+            if(stats > 35 && stats < 50)
+            {
+                return (int)stats;
+            }
+
+        }
+        return -1;
+        //להוסיף כפתור של int
+        //להוסיף מfake api
+        //איי פי איי של חידות כאלה שתהיה שאלה על המסך ואז זה ישאל אותך מה לעשות ואז אם אתה בוחר ככה וצדקת אתה מקבל עוד 50 כסף
     }
 }
