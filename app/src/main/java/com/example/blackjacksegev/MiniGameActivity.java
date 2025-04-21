@@ -58,6 +58,7 @@ public class MiniGameActivity extends AppCompatActivity implements View.OnClickL
             if (Integer.parseInt(etOdds.getText().toString()) == x) {
                 if (Streak) {
                     points += lastadd + 1;
+                    lastadd++;
                 } else {
                     Streak = true;
                     points++;
