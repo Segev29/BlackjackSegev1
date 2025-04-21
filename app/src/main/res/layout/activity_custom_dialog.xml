@@ -3,15 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="#0D1B2A"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Would you like to play again?"
+        android:text="You should use this equation in order to calculate the odds:"
         android:gravity="center"
-        android:textSize="30dp"></TextView>
-
+        android:textColor="#00B4D8"
+        android:textSize="25dp"></TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 1. add up the sum of the cards that you have \n 2. look at the cards of the computer \n 3. count how many cards that are left
+          get you over 21 \n 4. use this formula: \n cards that can make me bust/50 = the odds to bust\n NOTE: remmeber to rount the number!"
+        android:textSize="20dp"
+        android:textColor="#00E2FF"
+        ></TextView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,23 +28,15 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/btnyes"
+            android:id="@+id/btnunderstood"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="YES"
-            android:backgroundTint="@color/black"
+            android:text="Alright!"
+            android:background="#4CC9F0"
             ></Button>
 
-        <Button
-            android:id="@+id/btnno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="NO"
-            android:backgroundTint="@color/black"
-            ></Button>
-        >
+
     </LinearLayout>
 
 

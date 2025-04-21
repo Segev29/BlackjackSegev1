@@ -117,10 +117,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         txtcomputer.setText(p);
         txtplayer.setText(c);
     }
-    private void createDialog() {
-        CustomDialog customDialog = new CustomDialog(this);
-        customDialog.show();
-    }
     @Override
     public void onClick(View v) {
         if(v == btnHit /*&& player.size()<9*/)
@@ -162,9 +158,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 while (sumComputer < 17) {
                     computer.add(deck.remover());
                     gameView.setComputer(computer);
-                    //להוסיף בחירת צבע רקע למרות שזה מכוער
-                    //לדבר עם הקלוד ולעשות עיצוב מגניב יותר
-                    //אם ישנה אפשרות להוסיף גם פראגמנט
                     addCardsBeforeSplit();
                 }
                 addCardsBeforeSplit();

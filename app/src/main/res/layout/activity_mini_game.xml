@@ -12,13 +12,13 @@
     <!-- Game canvas view -->
     <LinearLayout
         android:layout_marginTop="5dp"
-        android:id="@+id/canvasView"
+        android:id="@+id/canvasView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="#0D1B2A"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/txtPlayerHand"
-        app:layout_constraintHeight_percent="0.65" />
+        app:layout_constraintHeight_percent="0.57" />
 
     <!-- Text for Player's Hand -->
     <TextView
@@ -37,45 +37,35 @@
         android:id="@+id/actionButtonsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:background="#0D1B2A"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toTopOf="@+id/scoreLayout">
 
-        <Button
-            android:id="@+id/btnStand1"
-            android:layout_width="0dp"
+        <EditText
+            android:id="@+id/etWHATARETHEODDS"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="STAND"
+            android:hint="what are the odds to bust?"
+            android:inputType="number"
+            android:layout_marginTop="20dp"
             android:textSize="25dp"
-            android:textStyle="bold"
+            android:padding="15dp"
+            android:textColorHint="#90E0EF"
             android:textColor="#E0E1DD"
-            android:background="#3A0CA3"
-            android:layout_margin="15dp" />
-
+            android:background="#415A77"></EditText>
         <Button
-            android:id="@+id/btnHIT1"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="HIT"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:textColor="#E0E1DD"
-            android:background="#7209B7"
-            android:layout_margin="15dp" />
+            android:text="Submit"
+            android:id="@+id/btnSubmit"
+            ></Button>
         <Button
-            android:id="@+id/btnsplit1"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="SPLIT"
-            android:textSize="25dp"
-            android:textStyle="bold"
-            android:textColor="#E0E1DD"
-            android:background="#4361EE"
-            android:layout_margin="15dp" />
+            android:text="need help?"
+            android:id="@+id/btnHelp"
+            ></Button>
     </LinearLayout>
 
     <!-- Score layout -->

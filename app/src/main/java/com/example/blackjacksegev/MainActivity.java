@@ -122,7 +122,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v == btnAddMoney)
         {
-            totalmoeny = totalmoeny+150;
+            Intent intent = new Intent(this, MiniGameActivity.class);
+            startActivityForResult(intent,10);
         }
 
         if(v == btnLogout)
@@ -206,6 +207,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             bet = 0;
+            refresh();
+        }
+        if(requestCode == 10)
+        {
+            int x = data.getIntExtra("MoneyMoney",1);
+            totalmoeny += x;
             refresh();
         }
 

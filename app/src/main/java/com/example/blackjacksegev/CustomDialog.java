@@ -8,28 +8,18 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 
 public class CustomDialog extends Dialog implements View.OnClickListener {
-    private Button btnyes, btnno;
+    private Button btnyes;
     private Context context;
     public CustomDialog(@NonNull Context context) {
         super(context);
         setContentView(R.layout.activity_custom_dialog);
 
-        btnyes = findViewById(R.id.btnyes);
-        btnno = findViewById(R.id.btnno);
-        btnno.setOnClickListener(this);
+        btnyes = findViewById(R.id.btnunderstood);
         btnyes.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(v == btnyes)
-        {
-            dismiss();
-            ((GameActivity) context).reset();
-        }
-        if(btnno == v)
-        {
-            ((GameActivity) context).finish();
-        }
+        dismiss();
     }
 }
