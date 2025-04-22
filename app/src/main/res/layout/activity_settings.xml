@@ -3,24 +3,65 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/background"
-    android:orientation="vertical">
-    <Spinner
+    android:background="#0D1B2A"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinnerColors"
-        ></Spinner>
-    <ImageButton
-
-        android:id="@+id/musicButton"
+        android:gravity="center"
+        android:text="\nHow to Play Blackjack
+\nGoal: Get as close as possible to 21 without going over.
+\nCard Values: Cards 2–10 = face value
+\nJ, Q, K = 10 points
+\nA (Ace) = 1 point only
+\nYour Turn: You start with 2 cards
+\nYou can choose to Hit (take another card) or Stand (keep your current hand)
+\nIf your total goes over 21, you bust and lose the round
+\nDealer's Turn: The dealer also has 2 cards (1 is visible)
+\nThe dealer keeps hitting until they reach at least 17
+\nIf they bust, you win
+\nWho Wins: If you bust, you lose
+\nIf the dealer busts, you win
+\nIf both are under 21, the highest total wins
+\nIf it's a tie, it's a draw"
+        android:textColor="#48CAE4"
+        android:layout_marginBottom="50dp"
+        ></TextView>
+    <Button
+        android:id="@+id/RuleRead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/jeton"
-        android:text="Play Music" />
-    <ImageButton
+        android:text="Read The rules please"
+        android:textAllCaps="false"
+        android:textColor="#E0E1DD"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:elevation="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="#3A0CA3" />
+
+    <Button
+        android:id="@+id/PlayMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play music"
+        android:textAllCaps="false"
+        android:textColor="#E0E1DD"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:elevation="8dp"
+        android:layout_marginBottom="24dp"
+        android:background="#3A0CA3" />
+
+    <Button
         android:id="@+id/btnDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/goback" />
+        android:elevation="6dp"
+        android:text="Go back"
+        android:padding="8dp"
+        android:background="#48CAE4" />
 
 </LinearLayout>

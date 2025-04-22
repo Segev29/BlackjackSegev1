@@ -71,9 +71,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onActivityResult(ActivityResult o) {
                 if (o.getResultCode() == RESULT_OK) {
                     Intent data = o.getData();
-                    color = data.getStringExtra("color");
-                    colors1();
-                    Toast.makeText(MainActivity.this, color, Toast.LENGTH_SHORT).show();
+                    int x = data.getIntExtra("MoneyMoney",1);
+                    totalmoeny += x;
+                    refresh();
                 }
             }
         });
@@ -82,48 +82,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public void userDataChange(MyMoney currentRecord) {
         totalmoeny = currentRecord.getScore();
         moneyview.setText("You have:" + currentRecord.getScore());}
-    public void colors1()
-    {
-
-        switch (color)
-        {
-            case "blue":
-            {
-                btn1.setBackgroundColor(Color.BLUE);
-                btn10.setBackgroundColor(Color.BLUE);
-                btn50.setBackgroundColor(Color.BLUE);
-                btn200.setBackgroundColor(Color.BLUE);
-                break;
-
-            }
-            case "red":
-            {
-                btn1.setBackgroundColor(Color.RED);
-                btn10.setBackgroundColor(Color.RED);
-                btn50.setBackgroundColor(Color.RED);
-                btn200.setBackgroundColor(Color.RED);
-                break;
-            }
-            case "green":
-            {
-                btn1.setBackgroundColor(Color.GREEN);
-                btn10.setBackgroundColor(Color.GREEN);
-                btn50.setBackgroundColor(Color.GREEN);
-                btn200.setBackgroundColor(Color.GREEN);
-                break;
-            }
-            default:
-                Toast.makeText(MainActivity.this, "No valid color selected", Toast.LENGTH_SHORT).show();
-                break;
-        }
-    }
 
     @Override
     public void onClick(View v) {
         if(v == btnAddMoney)
         {
-            Intent intent = new Intent(this, MiniGameActivity.class);
-            startActivityForResult(intent,10);
+            Intent i1 = new Intent(this,MiniGameActivity.class);
+            activityResultLauncher.launch(i1);
         }
 
         if(v == btnLogout)
@@ -176,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == btnSettings)
         {
             Intent i1 = new Intent(this,SettingsActivity.class);
-            activityResultLauncher.launch(i1);
+            startActivity(i1);
         }
         fb.setPrivateRecord(totalmoeny);
         refresh();
@@ -209,12 +174,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             bet = 0;
             refresh();
         }
-        if(requestCode == 10)
-        {
-            int x = data.getIntExtra("MoneyMoney",1);
-            totalmoeny += x;
-            refresh();
-        }
-
     }
 }
