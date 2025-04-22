@@ -175,6 +175,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         i.putExtra("k", "0");
                         txtcomputer.setText("draw");
                         txtplayer.setText("draw");
+                        break;
                     }
                     default:
                     {
@@ -182,6 +183,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         i.putExtra("k", "2");
                         txtcomputer.setText("you lost");
                         txtplayer.setText("you lost");
+                        break;
                     }
                 }
                 setResult(RESULT_OK,i);
@@ -235,10 +237,8 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         public void run() {
                             finish();
                         }
-                    },2500);
+                    },500);
                 }
-
-                //write the logic of win and lose in split! draw and win = win. win and win = win. draw and draw = draw. draw and lose = lose. lost and win = draw. lose and lose = lost
 
             }
         }
@@ -251,10 +251,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if (p < 22 && p == c) {
             return 0;
-        }
-        else if(p > 22 && c > 22)
-        {
-            return 2;
         }
         else if (c < 22 && c > p)
         {

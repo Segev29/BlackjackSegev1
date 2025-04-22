@@ -79,7 +79,7 @@ public class MiniGameActivity extends AppCompatActivity implements View.OnClickL
                     public void run() {
                         finish();
                     }
-                }, 500);
+                }, 400);
             }
             else
             {
@@ -133,6 +133,6 @@ public class MiniGameActivity extends AppCompatActivity implements View.OnClickL
                     busters++;
             }
         }
-        return busters/50;
+        return busters*100/50;
     }
 }
