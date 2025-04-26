@@ -72,20 +72,20 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         {
 
             textToSpeech.speak("nHow to Play Blackjack" +
-                    "\\nGoal: Get as close as possible to 21 without going over.  \n" +
-                    "\\nCard Values: Cards 2–10 = face value  \n" +
-                    "\\nJ, Q, K = 10 points  \n" +
-                    "\\nA (Ace) = 1 point only  \n" +
-                    "\\nYour Turn: You start with 2 cards  \n" +
-                    "\\nYou can choose to Hit (take another card) or Stand (keep your current hand)  \n" +
-                    "\\nIf your total goes over 21, you bust and lose the round  \n" +
-                    "\\nDealer's Turn: The dealer also has 2 cards (1 is visible)  \n" +
-                    "\\nThe dealer keeps hitting until they reach at least 17  \n" +
-                    "\\nIf they bust, you win  \n" +
-                    "\\nWho Wins: If you bust, you lose  \n" +
-                    "\\nIf the dealer busts, you win  \n" +
-                    "\\nIf both are under 21, the highest total wins  \n" +
-                    "\\nIf it's a tie, it's a draw",TextToSpeech.QUEUE_FLUSH,null);
+                    "Goal: Get as close as possible to 21 without going over.  " +
+                    "Card Values: Cards 2–10 = face value  " +
+                    "J, Q, K = 10 points  " +
+                    "A (Ace) = 1 point only  " +
+                    "Your Turn: You start with 2 cards  " +
+                    "You can choose to Hit (take another card) or Stand (keep your current hand)  " +
+                    "If your total goes over 21, you bust and lose the round  " +
+                    "Dealer's Turn: The dealer also has 2 cards (1 is visible)  " +
+                    "The dealer keeps hitting until they reach at least 17  " +
+                    "If they bust, you win  " +
+                    "Who Wins: If you bust, you lose  " +
+                    "If the dealer busts, you win  " +
+                    "If both are under 21, the highest total wins  " +
+                    "nIf it's a tie, it's a draw",TextToSpeech.QUEUE_FLUSH,null);
         }
 
     }

@@ -79,7 +79,7 @@ public class MiniGameActivity extends AppCompatActivity implements View.OnClickL
                     public void run() {
                         finish();
                     }
-                }, 10);
+                }, 4000);
             }
             else
             {
