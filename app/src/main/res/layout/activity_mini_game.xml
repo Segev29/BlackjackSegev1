@@ -9,7 +9,6 @@
     android:background="#0D1B2A"
     tools:context=".GameActivity">
 
-    <!-- Game canvas view -->
     <LinearLayout
         android:layout_marginTop="5dp"
         android:id="@+id/canvasView1"
@@ -20,7 +19,6 @@
         app:layout_constraintBottom_toTopOf="@+id/txtPlayerHand"
         app:layout_constraintHeight_percent="0.57" />
 
-    <!-- Text for Player's Hand -->
     <TextView
         android:id="@+id/txtPlayerHand"
         android:layout_width="match_parent"
@@ -32,7 +30,6 @@
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/actionButtonsLayout" />
 
-    <!-- Action buttons layout -->
     <LinearLayout
         android:id="@+id/actionButtonsLayout"
         android:layout_width="match_parent"
@@ -68,7 +65,6 @@
             ></Button>
     </LinearLayout>
 
-    <!-- Score layout -->
     <LinearLayout
         android:id="@+id/scoreLayout"
         android:layout_width="match_parent"

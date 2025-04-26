@@ -10,7 +10,7 @@
     android:id="@+id/lActivityMain"
     tools:context=".GameActivity">
 
-    <!-- Text for Computer's Hand -->
+
     <TextView
         android:id="@+id/txtComputerHand"
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         android:layout_marginTop="5dp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Game canvas view -->
+
     <LinearLayout
         android:layout_marginTop="5dp"
         android:id="@+id/canvasView"
@@ -35,7 +35,7 @@
         app:layout_constraintBottom_toTopOf="@+id/txtPlayerHand"
         app:layout_constraintHeight_percent="0.65" />
 
-    <!-- Text for Player's Hand -->
+
     <TextView
         android:id="@+id/txtPlayerHand"
         android:layout_width="match_parent"
@@ -47,7 +47,7 @@
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/actionButtonsLayout" />
 
-    <!-- Action buttons layout -->
+
     <LinearLayout
         android:id="@+id/actionButtonsLayout"
         android:layout_width="match_parent"
@@ -93,7 +93,7 @@
             android:layout_margin="15dp" />
     </LinearLayout>
 
-    <!-- Score layout -->
+
     <LinearLayout
         android:id="@+id/scoreLayout"
         android:layout_width="match_parent"

@@ -72,6 +72,7 @@ public class MiniGameActivity extends AppCompatActivity implements View.OnClickL
             round++;
             if (round == 10) {
                 Intent i = new Intent();
+                score.setText("you have : " + points + " points");
                 i.putExtra("MoneyMoney", points * 10);
                 setResult(RESULT_OK, i);
                 new Handler().postDelayed(new Runnable() {
