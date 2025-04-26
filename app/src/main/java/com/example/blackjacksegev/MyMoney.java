@@ -11,8 +11,6 @@ public class MyMoney {
     public MyMoney() {
     }
 
-    // MUST generate getters and setters for the FireBase
-
     public int getScore() {
         return score;
     }

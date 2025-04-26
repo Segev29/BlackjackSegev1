@@ -32,6 +32,5 @@ public class MiniGameView extends View {
         cardontable2 = Bitmap.createScaledBitmap(player.get(1).getBitmap(), canvas.getWidth()/2 - 20, canvas.getHeight(), true);
         canvas.drawBitmap(cardontable,0,0,paint);
         canvas.drawBitmap(cardontable2,canvas.getWidth()/2+20,0,paint);
-
     }
 }

@@ -19,13 +19,10 @@ public class HelperClass {
     Context context;
     ArrayList<MyMoney> myRecords;
     public HelperClass(Context context, ArrayList<MyMoney> myRecords) {
-        //database = FirebaseDatabase.getInstance("https://fbrecordst-default-rtdb.firebaseio.com");
         database = FirebaseDatabase.getInstance();
         this.context = context;
         this.myRecords = myRecords;
 
-        // read the records from the Firebase and order them by the record from highest to lowest
-        // limit to only 8 items
         Query myQuery = database.getReference("Money").orderByChild("score");
 
         myQuery.addValueEventListener(new ValueEventListener() {
@@ -37,15 +34,6 @@ public class HelperClass {
                     MyMoney currentMyRecord =userSnapshot.getValue(MyMoney.class);
                     myRecords.add(0, currentMyRecord);
                 }
-/*                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    users.sort(new Comparator<User>() {
-                        @Override
-                        public int compare(User user, User t1) {
-                            return 0;
-                        }
-                    });
-                }*/
-                /*((MainActivity)context).dataChange();*/
 
             }
 
@@ -56,7 +44,6 @@ public class HelperClass {
 
         DatabaseReference myRef = database.getReference(FirebaseAuth.getInstance().getUid());   // קבלת מזהה המשתמש מתוך Firebase Authentication
         myRef = database.getReference("Money/" + FirebaseAuth.getInstance().getUid());    // יצירת קישור למידע הפרטי של המשתמש תחת "Money/[UserID]"
-        //DatabaseReference myRef = database.getReference().child(FirebaseAuth.getInstance().getUid());
         myRef.addValueEventListener(new ValueEventListener() {   // מאזין לשינויים בנתונים של המשתמש הספציפי המחובר
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -67,28 +54,12 @@ public class HelperClass {
                 }
                 else
                     Log.d("TAG", "onDataChange: ");
-
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                //Toast.makeText(context, "name onCancelled", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-    }
-
-    public void setRecord( int record)
-    {
-        // Write a message to the database
-        DatabaseReference myRef = database.getReference("Money").push(); // push adds new node with unique value
-
-        //DatabaseReference myRef = database.getReference("records/" + FirebaseAuth.getInstance().getUid());
-
-        MyMoney rec = new MyMoney(record);
-        myRef.setValue(rec);    // שמירת האובייקט במסד הנתונים
     }
 
     public void setPrivateRecord(int record)

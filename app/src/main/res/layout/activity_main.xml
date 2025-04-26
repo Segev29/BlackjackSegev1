@@ -74,7 +74,7 @@
             android:id="@+id/moneyview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Current bet is: 0"
+            android:text="you have: 0"
             android:textColor="#48CAE4"
             android:textSize="30dp"
             android:textStyle="bold" />

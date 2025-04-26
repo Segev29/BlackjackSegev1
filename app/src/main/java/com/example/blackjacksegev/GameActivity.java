@@ -20,11 +20,10 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Card> playerSplitted;
     private Button btnStand, btnHit, btnSplit;
     private LinearLayout layout1;
-    private int sumPlayer=0, sumComputer=0, sumPlayerSplit=0, firstpartofthegame;
+    private int sumPlayer=0, sumComputer=0, sumPlayerSplit=0;
     private String p,c;
     private TextView txtplayer, txtcomputer;
     private boolean split, endfirstsplit;
-    //int bet,totalmoney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +51,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         player = new ArrayList<>();
         computer = new ArrayList<>();
         playerSplitted = new ArrayList<>();
-        //תוסיף challenges וגם את הhint
-        //תוסיף challenges וגם את הhint
-        //תוסיף challenges וגם את הhint
-        //תוסיף challenges וגם את הhint
-        //תוסיף challenges וגם את הhint
-        //תוסיף challenges וגם את הhint
-        //totalmoney = 1500;
-        //bet = 0;
         fill();
     }
 
@@ -119,7 +110,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v) {
-        if(v == btnHit /*&& player.size()<9*/)
+        if(v == btnHit)
         {
             if(split)
             {
@@ -143,7 +134,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 addCardsBeforeSplit();
             }
         }
-        if(v == btnSplit && player.size() == 2 && player.get(1).getNumber() == player.get(0).getNumber())
+        if(v == btnSplit && player.size() == 2 && player.get(1).getNumber() == player.get(0).getNumber() && split == false)
         {
             playerSplitted.add(player.get(1));
             player.remove(1);
@@ -208,9 +199,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     while (sumComputer < 17) {
                         computer.add(deck.remover());
                         gameView.setComputer(computer);
-                        //להוסיף בחירת צבע רקע למרות שזה מכוער
-                        //לדבר עם הקלוד ולעשות עיצוב מגניב יותר
-                        //אם ישנה אפשרות להוסיף גם פראגמנט
                         addCardsBeforeSplit();
                     }
                     int part1 = winner(sumComputer,sumPlayer);
@@ -265,7 +253,7 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public int HintSystem()
+    /*public int HintSystem()
     {
         int busters = 0;
         double stats;
@@ -315,8 +303,5 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         return -1;
-        //להוסיף כפתור של int
-        //להוסיף מfake api
-        //איי פי איי של חידות כאלה שתהיה שאלה על המסך ואז זה ישאל אותך מה לעשות ואז אם אתה בוחר ככה וצדקת אתה מקבל עוד 50 כסף
-    }
+    }*/
 }

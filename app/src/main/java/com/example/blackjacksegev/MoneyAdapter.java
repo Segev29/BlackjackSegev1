@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 public class MoneyAdapter extends RecyclerView.Adapter<MoneyAdapter.UserViewHolder> {
 
-    //this context we will use to inflate the layout
     private Context context;
 
-    //storing all the records in a list
     private List<MyMoney> recordsList;
 
     public MoneyAdapter(Context context, List<MyMoney> recordsList) {
@@ -34,14 +32,7 @@ public class MoneyAdapter extends RecyclerView.Adapter<MoneyAdapter.UserViewHold
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        // read eachtime from arraylist object and write to listview Item
-        //getting the record of the specified position
         MyMoney money = recordsList.get(position);
-
-        // TODO: update according to your Class
-        /*holder.tvName.setText(money.getName());*/
-
-        // convert int to String by:  ""+int
         holder.tvRecord.setText(""+money.getScore());
 
     }

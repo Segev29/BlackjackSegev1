@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 
 public class CustomDialog extends Dialog implements View.OnClickListener {
     private Button btnyes;
-    private Context context;
     public CustomDialog(@NonNull Context context) {
         super(context);
         setContentView(R.layout.activity_custom_dialog);

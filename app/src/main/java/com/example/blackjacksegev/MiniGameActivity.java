@@ -90,8 +90,8 @@ public class MiniGameActivity extends AppCompatActivity implements View.OnClickL
     }
     public void update()
     {
-
-        deck = new CardDeck(this);
+        deck.add(player.get(1));
+        deck.add(player.get(0));
         player = new ArrayList<>();
         player.add(deck.remover());
         player.add(deck.remover());
